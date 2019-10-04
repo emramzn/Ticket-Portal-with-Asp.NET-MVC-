@@ -1,0 +1,167 @@
+﻿
+
+
+@*@model IEnumerable<AspTry_1.Models.Gorevler>
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+
+
+    </head>
+<body>
+
+        <select id="input" onchange="random_function()">
+            <option>select option</option>
+            <option>Bilgi işlem</option>
+            <option>Bakım</option>
+        </select>
+        <div id="output">
+
+        </div>
+
+    </body>
+
+<script src="~/Content/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+        $('#input').change(function () {
+            var selectedOption = $('#input option:selected');
+            alert(selectedOption.text());
+            (".container #birim").value(selectedOption.text());
+            
+
+        });
+    });
+
+</script>
+
+<script type="text/javascript">
+
+    function random_function() {
+        var a = document.getElementById("input").value;
+        if (a === "Bilgi islem") {
+            var arr = ["Yazılım", "Donanım", "Sistem"];
+        }
+        else if (a === "Bakım") {
+            var arr = ["Elektrik", "Metal", "Makine"];
+        }
+
+        var string = "";
+
+        for (i = 0; i < arr.length; i++) {
+
+            string = string + "<option>" + arr[i] + "</option>";
+        }
+
+        string = "<select id='nameid' name='any_name'>" + string + "</select>";
+        document.getElementById("output").innerHTML = string;
+
+    }
+
+</script>
+
+
+
+
+
+
+
+
+<main class="app-content">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <div class="container">
+                        <form action="/arizaKaydi/Insert" method="post">
+
+
+                            <h3>Arıza Kaydı Oluştur</h3>
+                            <hr />
+
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Ad - Soyad</label>
+                                <input class="form-control" type="text" name="personelAdSoyad" value="" />
+                            </div>
+
+                            <div class="form-group">
+            <label for="exampleInputEmail1">Birim Seçin </label>
+
+
+            <select name="birim" id="input" class="form-control" onchange="random_function()">
+                <option>Birim </option>
+                <option>Bilgi islem</option>
+                <option>Bakım</option>
+                <option>Elektrik</option>
+                <option>Makine</option>
+            </select>
+
+
+
+        </div>
+
+                            <div class="form-group">
+
+                                <input class="form-control" type="text" name="birim" value="Bilgi islem" />
+
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">birim </label>
+                                <input class="form-control" type="text" name="birim" value="" />
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Kısa Başlık </label>
+                                <input class="form-control" type="text" name="baslik" value="" />
+                            </div>
+
+
+
+                            <div id="output">
+
+        </div>
+
+
+                            <div class="form-group">
+                                <label for="exampleTextarea">Açıklama</label>
+                                <textarea class="form-control" id="exampleTextarea" name="aciklama" rows="3"></textarea>
+                            </div>
+
+                            <div class="form-group">
+
+
+
+                                <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Kaydı Oluştur</button>
+
+
+
+                            </div>
+
+                        </form>
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    </div>*@
+

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="birimler">
+    <Key>
+      <PropertyRef Name="birimID_" />
+    </Key>
+    <Property Name="birimID_" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="birimAdi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Gorevler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Durum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="isbaslik" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Tarih" Type="DateTime" Precision="0" />
+    <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonelAdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gorevAalan" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="kullanicilar">
+    <Key>
+      <PropertyRef Name="kulAdi" />
+    </Key>
+    <Property Name="kulAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sifre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="AdSoyad" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="birim" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="yetki" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="perID" />
+    </Key>
+    <Property Name="perID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdSoyad" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="birim" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="yetki" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="DatabaseDBEntities4" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="birimler" EntityType="Self.birimler" />
+    <EntitySet Name="Gorevler" EntityType="Self.Gorevler" />
+    <EntitySet Name="kullanicilar" EntityType="Self.kullanicilar" />
+    <EntitySet Name="Table" EntityType="Self.Table" />
+  </EntityContainer>
+</Schema>

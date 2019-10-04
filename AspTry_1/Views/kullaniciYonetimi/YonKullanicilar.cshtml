@@ -1,0 +1,278 @@
+﻿@model IEnumerable<AspTry_1.Models.kullanicilar>
+
+@if (Session["kuladi"] == null)
+{
+
+    Response.Redirect("../login");
+}
+
+<!--YETKİLENDİRME KISMI-->
+
+<div id="content-wrapper">
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("mySelect").value;
+            document.getElementById("demo").innerHTML = "You selected: " + x;
+
+
+        }
+    </script>
+
+    <!--YETKİLENDİRME KISMI BİTİŞ -->
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $(".identifyingClass").click(function () {
+                    var my_id_value = $(this).attr('data-acanPer');
+                    $(".modal-body #data-acanPer").text(my_id_value);
+                    var my_id_value2 = $(this).attr('data-baslik');
+                    $(".modal-body #data-baslik").text(my_id_value2);
+                    var my_id_value3 = $(this).attr('data-tarih');
+                    $(".modal-body #data-tarih").text(my_id_value3);
+                    var my_id_value4 = $(this).attr('data-aciklama');
+                    $(".modal-body #data-aciklama").html(my_id_value4);
+
+                    var my_id_value5 = $(this).attr('data-birim');
+                    $(".modal-body #data-birim").text(my_id_value5);
+
+                    var dataId = $(this).attr('data-id');
+                    $(".modal-body #data-idget").val(dataId);
+
+
+
+
+                })
+            });
+
+            //  YÖNLENDİRME MODAL BÖLÜMÜNÜN AÇILDIĞINDA YÖNLENDİRİLECEK İŞİN İD SİNİ ALDIM MODALA GÖNDERDİM
+            $(function () {
+                $(".example-modal1").click(function () {
+                    var my_id_value = $(this).attr('data-id');
+                    $(".modal-body #getId").val(my_id_value);
+
+
+                })
+            });
+
+
+
+
+        </script>
+    </head>
+    <!-- YÖNLENDİRME MODAL BÖLÜMÜ -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Görev Yönlendir</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+             
+                <div class="modal-body">
+
+
+                    @using (Html.BeginForm("yonlendir", "Home", FormMethod.Post))
+                    {
+
+                        <div class="form-group">
+                            <div class="modal-body">
+
+                                <div class="col-md-12">
+                                    <!--id yi textbox ile görmek istedim hidden özelliği ile görünmez yapabilirsin. -->
+                                    <input type="text" name="name" id="getId" value="" />
+
+                                    <div class="row">
+                                        @{
+                                            using (AspTry_1.Models.DatabaseDBEntities4 birimPer = new AspTry_1.Models.DatabaseDBEntities4())
+                                            {
+
+                                                string birim = Session["birim"].ToString().Trim();
+
+                                                List<AspTry_1.Models.kullanicilar> zBul = (from y in birimPer.kullanicilar where y.birim == birim select y).ToList();
+
+                                                foreach (var item in zBul)
+                                                {
+                                                    <div class="col-md-4">
+                                                        <a href="#">
+                                                            <img style="border-radius:50%" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="85px" height="80px" class="img-circle">
+                                                            <h5 class="media-heading">@item.AdSoyad<small>@item.birim</small></h5>
+                                                        </a>
+
+                                                    </div>
+
+                                                }
+
+                                            }
+                                        }
+                                        <br />
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+
+                    <button type="submit" class="btn btn-warning" data-dismiss="modal">Yönlendir</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- YÖNLENDİRME MODAL BÖLÜMÜ  BİTİŞ -->
+    <!-- GÖREV ÜSLENME MODAL BÖLÜMÜ -->
+
+    <div class="modal fade bd-example-modal-lg" id="my_modal" tabindex="-1" role="dialog" aria-labelledby="my_modalLabel">
+        <div class="modal-dialog modal-lg" role="dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img src="~/images.png" alt="Alternate Text" />
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                </div>
+
+                <!--GÖREV ÜSTLENME-->
+
+                @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+                {
+                    <div class="modal-body">
+
+
+                        <div class="form-group col-md-12">
+                            <div class="row">
+
+                                <h5 id="data-acanPer"> </h5> &nbsp; | &nbsp;
+                                <h5 id="data-birim"> </h5> &nbsp; | &nbsp;
+                                <h5 id="data-tarih"></h5>  &nbsp;
+
+
+                                <input type="text" name="idget" id="data-idget" value="" hidden />
+
+                            </div>
+                            <hr />
+                            <h5 name="aciklama" id="data-aciklama"></h5><br />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Açıklama</label>
+                            <textarea name="aciklama" class="form-control" id="message-text"></textarea>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+
+                        <button type="submit" class="btn btn-success">Listeye al</button>
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!-- GÖREV ÜSLENME MODAL BÖLÜMÜ BİTİŞ -->
+    <!-- DataTables Example -->
+    <div class="card mb-3">
+        <div class="card-header" style="text-align:center">
+            <h4 style="color:black">Kullanıcı Yönetimi</h4>
+
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+
+                            <th>Kullanıcı adı</th>
+                            <th>Ad -Soyad</th>
+                            <th>Birim</th>
+                            <th>yetki</th>
+
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Kullanıcı adı</th>
+                            <th>Ad -Soyad</th>
+                            <th>Birim</th>
+                            <th>yetki</th>
+
+
+
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+
+                        @using (AspTry_1.Models.DatabaseDBEntities4 birimPer = new AspTry_1.Models.DatabaseDBEntities4())
+                        {
+
+                            string birim = Session["birim"].ToString().Trim();
+
+                            List
+                            <AspTry_1.Models.kullanicilar>
+                                zBul = (from y in birimPer.kullanicilar where y.birim == birim select y).ToList();
+
+                            foreach (var item in zBul)
+                            {
+                                string deg = item.yetki;
+                                <tr>
+                                    <td>@item.kulAdi</td>
+                                    <td> @item.AdSoyad</td>
+                                    <td> @item.birim</td>
+                                    <td>
+                                        @item.yetki
+                                        </td>
+
+
+                                </tr>
+
+                            }
+
+
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+</div>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+    <p>Select a new car from the list.</p>
+
+
+
+    <p>When you select a new car, a function is triggered which outputs the value of the selected car.</p>
+
+    <p id="demo"></p>
+
+
+
+</body>
+</html>

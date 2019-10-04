@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabaseDBModelStoreContainer" CdmEntityContainer="DatabaseDBEntities4">
+    <EntitySetMapping Name="birimler">
+      <EntityTypeMapping TypeName="DatabaseDBModel.birimler">
+        <MappingFragment StoreEntitySet="birimler">
+          <ScalarProperty Name="birimID_" ColumnName="birimID " />
+          <ScalarProperty Name="birimAdi" ColumnName="birimAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gorevler">
+      <EntityTypeMapping TypeName="DatabaseDBModel.Gorevler">
+        <MappingFragment StoreEntitySet="Gorevler">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="isbaslik" ColumnName="isbaslik" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="Birim" ColumnName="Birim" />
+          <ScalarProperty Name="PersonelAdSoyad" ColumnName="PersonelAdSoyad" />
+          <ScalarProperty Name="gorevAalan" ColumnName="gorevAalan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kullanicilar">
+      <EntityTypeMapping TypeName="DatabaseDBModel.kullanicilar">
+        <MappingFragment StoreEntitySet="kullanicilar">
+          <ScalarProperty Name="kulAdi" ColumnName="kulAdi" />
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+          <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+          <ScalarProperty Name="birim" ColumnName="birim" />
+          <ScalarProperty Name="yetki" ColumnName="yetki" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table">
+      <EntityTypeMapping TypeName="DatabaseDBModel.Table">
+        <MappingFragment StoreEntitySet="Table">
+          <ScalarProperty Name="perID" ColumnName="perID" />
+          <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+          <ScalarProperty Name="birim" ColumnName="birim" />
+          <ScalarProperty Name="yetki" ColumnName="yetki" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

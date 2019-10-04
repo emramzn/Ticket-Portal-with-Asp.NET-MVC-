@@ -1,0 +1,141 @@
+﻿
+@model AspTry_1.Models.FileUploadModel
+
+
+@if (Session["kuladi"] == null)
+{
+
+    Response.Redirect("../login");
+}
+<main class="app-content">
+    <div class="container" >
+            
+        <div class="card">
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div style="text-align:center;" ><h3>Hesap Ayarları</h3>   </div>
+                    <hr />
+                    <div class="row">
+
+                        <div class="col-lg-6">
+                            @*<div><img src="#" alt="Alternate Text" /></div>*@
+                            <!--Fotoğraf Yükleme-->
+
+                            @using (Html.BeginForm("Add", "hesap", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        @*  @Html.LabelFor(model => model.file, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.file, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
+                                                @Html.ValidationMessageFor(model => model.file, "", new { @class = "text-danger" })
+                                            </div>
+                                            @*<div class="col-md-offset-2 col-md-10">*@
+                                                <input type="submit" value="Yükle" class="btn btn-primary" />
+                                            @*</div>*@
+                                        </div>
+                                    </div>
+
+                                    @*<div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Yükle" class="btn btn-primary" />
+                                        </div>
+                                    </div>*@
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10 text-success">
+                                            @ViewBag.FileStatus
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                            <!--Fotoğraf Yükleme-->
+
+
+
+                            @using (Html.BeginForm("hesabiDuzenle", "hesap", FormMethod.Post))
+                            {
+
+                                <div class="container">
+
+
+
+                                    <div class="form-group">
+                                        @using (AspTry_1.Models.DatabaseDBEntities4 profilDuzen = new AspTry_1.Models.DatabaseDBEntities4())
+                                        {
+
+                                            string kulAdi = Session["kulAdi"].ToString().Trim();
+                                            List<AspTry_1.Models.kullanicilar> zBul = (from y in profilDuzen.kullanicilar where y.kulAdi == kulAdi select y).ToList();
+
+                                            foreach (var item in zBul)
+                                            {
+                                                <div class="display-field">
+
+                                                    <div class="card">
+                                                        
+                                                        <div class="card-body" style="border-color:forestgreen ; border-style:solid; align-items:center;">
+                                                            <div class="row">
+                                                                <img style="border-radius:50px; width:85px; height:85px;" src="@Url.Content(item.foto)" alt="Alternate Text" />&nbsp;
+                                                                <H4 style="margin-left:30px; margin-top:30px;" >@Session["adSoyad"]</H4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+</div>
+                                                            
+                                              
+                                            }
+
+                                        }
+
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Ad - Soyad</label>
+                                        <input class="form-control" type="text" name="personelAdSoyad" value=@Session["adSoyad"].ToString() />
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Kullanıcı Adı</label>
+                                        <input class="form-control" type="text" name="kulAdi" value=@Session["kulAdi"].ToString() />
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Şifre</label>
+                                        <input class="form-control" type="text" name="sifre" value=@Session["sifre"].ToString() />
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Guncelle</button>
+
+                                    </div>
+
+                                </div>
+
+                            }
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    
+ </div>

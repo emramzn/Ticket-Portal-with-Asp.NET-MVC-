@@ -1,0 +1,170 @@
+﻿
+
+@model IEnumerable<AspTry_1.Models.Gorevler>
+
+@if (Session["kuladi"] == null)
+{
+
+    Response.Redirect("../login");
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".identifyingClass").click(function () {
+                var my_id_value = $(this).attr('data-acanPer');
+                $(".modal-body #data-acanPer").text(my_id_value);
+                var my_id_value2 = $(this).attr('data-baslik');
+                $(".modal-body #data-baslik").text(my_id_value2);
+                var my_id_value3 = $(this).attr('data-tarih');
+                $(".modal-body #data-tarih").text(my_id_value3);
+                var my_id_value4 = $(this).attr('data-aciklama');
+                $(".modal-body #data-aciklama").html(my_id_value4);
+
+                var my_id_value5 = $(this).attr('data-birim');
+                $(".modal-body #data-birim").text(my_id_value5);
+
+                var dataId = $(this).attr('data-id');
+                $(".modal-body #data-idGet").val(dataId);
+
+
+
+
+            })
+        });
+    </script>
+</head>
+
+
+@*div class="modal fade bd-example-modal-lg" id="my_modal" tabindex="-1" role="dialog" aria-labelledby="my_modalLabel">
+    <div class="modal-dialog modal-lg" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img src="~/images.png" alt="Alternate Text" />
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 <h4 class="modal-title" id="myModalLabel">Modal Title</h4>
+            </div>
+
+            <div class="modal-body">
+
+                @using (Html.BeginForm("kayitSil", "islemdekiler", FormMethod.Post))
+                {
+                    <div class="form-group col-md-12">
+                        <div class="row">
+
+                            <h5 id="data-acanPer"> </h5> &nbsp; | &nbsp;
+                            <h5 id="data-birim"> </h5> &nbsp; | &nbsp;
+                            <h5 id="data-tarih"></h5>  &nbsp;
+
+                        </div>
+                        <hr />
+                        <h5 id="data-aciklama"></h5><br />
+                    </div>
+
+                    <input type="text" id="data-idGet" name="id" value="" hidden />
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                        <button type="submit" class="btn btn-danger">Kaydı Sil</button>
+                    </div>
+                }
+            </div>
+
+
+        </div>
+    </div>
+</div>
+     
+     *@ @*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>*@
+
+
+<!-- DataTables Example -->
+<div class="card mb-3">
+    <div class="card-header" style="text-align:center">
+        <h4 style="color:black">Biten Ticketler</h4>
+
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Görevi Alan </th>
+                        <th>İş Başlık</th>
+                        <th>İçerik Açıklama</th>
+                        <th>Tarih</th>
+                        <th>Birim</th>
+                        <th>Açan Personel</th>
+
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Görevi Alan</th>
+                        <th>İş Başlık</th>
+                        <th>İçerik Açıklama</th>
+                        <th>Tarih</th>
+                        <th>Birim</th>
+                        <th>Açan Personel</th>
+
+
+                    </tr>
+                </tfoot>
+                <tbody>
+
+                    @{
+                        foreach (var item in Model)
+
+
+                        {
+
+                            <tr >
+
+                                <td>
+
+
+                                            <div style="margin-top:15px; margin-left:30px">
+                                                <h5>@item.PersonelAdSoyad"</h5>
+                                            </div>
+
+
+                                </td>
+
+
+                                <td>@item.isbaslik</td>
+                                <td>
+
+                                        @item.Aciklama
+
+                                </td>
+                                <td>@item.Tarih</td>
+                                <td>@item.Birim</td>
+
+                                <td>@item.PersonelAdSoyad</td>
+
+
+                            </tr>
+
+
+                        }
+
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+   
+</div>
+
+
+
+
+</div>
+</div>

@@ -1,0 +1,76 @@
+﻿
+
+
+@model IEnumerable<AspTry_1.Models.Gorevler>
+
+@if (Session["kuladi"] == null)
+{
+
+    Response.Redirect("../login");
+}
+<main class="app-content">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <div class="row">
+
+                <div class="col-lg-6">
+                    @using (Html.BeginForm("arizaKayitIslem", "arizaKaydi", FormMethod.Post))
+                    {
+
+                        <div class="container">
+
+                            <h3>Arıza Kaydı Oluştur</h3>
+                            <hr />
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Ad - Soyad</label>
+                                <input class="form-control" type="text" name="personelAdSoyad" value=@Session["adSoyad"].ToString() />
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Birim Seçin </label>
+
+
+                                <select name="birim" id="input" class="form-control">
+                                    <option>Birim </option>
+                                    <option>Bilgi islem</option>
+                                    <option>Bakım</option>
+                                    <option>Elektrik</option>
+                                    <option>Makine</option>
+                                </select>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Kısa Başlık </label>
+                                <input class="form-control" type="text" name="baslik" value="" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleTextarea">Açıklama</label>
+                                <textarea class="form-control" id="exampleTextarea" name="aciklama" rows="3"></textarea>
+                            </div>
+
+                            <div class="form-group">
+
+                                <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Kaydı Oluştur</button>
+
+                            </div>
+
+                        </div>
+
+                    }
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+    </div>

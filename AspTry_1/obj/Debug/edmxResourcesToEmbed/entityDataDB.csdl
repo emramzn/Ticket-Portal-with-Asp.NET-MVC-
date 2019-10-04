@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Gorevler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Durum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="İsbaslik" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Aciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tarih" Type="DateTime" Precision="0" />
+    <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonelAdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="DatabaseDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Gorevler" EntityType="Self.Gorevler" />
+  </EntityContainer>
+</Schema>

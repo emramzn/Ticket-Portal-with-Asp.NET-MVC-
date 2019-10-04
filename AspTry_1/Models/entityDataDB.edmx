@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DatabaseDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="birimler">
+          <Key>
+            <PropertyRef Name="birimID " />
+          </Key>
+          <Property Name="birimID " Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="birimAdi" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Gorevler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Durum" Type="varchar" MaxLength="15" />
+          <Property Name="isbaslik" Type="varchar" MaxLength="20" />
+          <Property Name="Aciklama" Type="varchar(max)" />
+          <Property Name="Tarih" Type="date" />
+          <Property Name="Birim" Type="varchar" MaxLength="50" />
+          <Property Name="PersonelAdSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="gorevAalan" Type="varchar" MaxLength="35" />
+        </EntityType>
+        <EntityType Name="kullanicilar">
+          <Key>
+            <PropertyRef Name="kulAdi" />
+          </Key>
+          <Property Name="kulAdi" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="sifre" Type="varchar" MaxLength="20" />
+          <Property Name="AdSoyad" Type="varchar" MaxLength="35" />
+          <Property Name="birim" Type="varchar" MaxLength="20" />
+          <Property Name="yetki" Type="char" MaxLength="5" />
+          <Property Name="foto" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="perID" />
+          </Key>
+          <Property Name="perID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="AdSoyad" Type="varchar" MaxLength="35" />
+          <Property Name="birim" Type="varchar" MaxLength="20" />
+          <Property Name="yetki" Type="char" MaxLength="5" />
+        </EntityType>
+        <EntityContainer Name="DatabaseDBModelStoreContainer">
+          <EntitySet Name="birimler" EntityType="Self.birimler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gorevler" EntityType="Self.Gorevler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="kullanicilar" EntityType="Self.kullanicilar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabaseDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="birimler">
+          <Key>
+            <PropertyRef Name="birimID_" />
+          </Key>
+          <Property Name="birimID_" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="birimAdi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Gorevler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Durum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="isbaslik" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tarih" Type="DateTime" Precision="0" />
+          <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PersonelAdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gorevAalan" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="kullanicilar">
+          <Key>
+            <PropertyRef Name="kulAdi" />
+          </Key>
+          <Property Name="kulAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sifre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AdSoyad" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="birim" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="yetki" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="perID" />
+          </Key>
+          <Property Name="perID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AdSoyad" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="birim" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="yetki" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="DatabaseDBEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="birimler" EntityType="Self.birimler" />
+          <EntitySet Name="Gorevler" EntityType="Self.Gorevler" />
+          <EntitySet Name="kullanicilar" EntityType="Self.kullanicilar" />
+          <EntitySet Name="Table" EntityType="Self.Table" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatabaseDBModelStoreContainer" CdmEntityContainer="DatabaseDBEntities4">
+          <EntitySetMapping Name="birimler">
+            <EntityTypeMapping TypeName="DatabaseDBModel.birimler">
+              <MappingFragment StoreEntitySet="birimler">
+                <ScalarProperty Name="birimID_" ColumnName="birimID " />
+                <ScalarProperty Name="birimAdi" ColumnName="birimAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gorevler">
+            <EntityTypeMapping TypeName="DatabaseDBModel.Gorevler">
+              <MappingFragment StoreEntitySet="Gorevler">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+                <ScalarProperty Name="isbaslik" ColumnName="isbaslik" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Birim" ColumnName="Birim" />
+                <ScalarProperty Name="PersonelAdSoyad" ColumnName="PersonelAdSoyad" />
+                <ScalarProperty Name="gorevAalan" ColumnName="gorevAalan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kullanicilar">
+            <EntityTypeMapping TypeName="DatabaseDBModel.kullanicilar">
+              <MappingFragment StoreEntitySet="kullanicilar">
+                <ScalarProperty Name="kulAdi" ColumnName="kulAdi" />
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="birim" ColumnName="birim" />
+                <ScalarProperty Name="yetki" ColumnName="yetki" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table">
+            <EntityTypeMapping TypeName="DatabaseDBModel.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="perID" ColumnName="perID" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="birim" ColumnName="birim" />
+                <ScalarProperty Name="yetki" ColumnName="yetki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

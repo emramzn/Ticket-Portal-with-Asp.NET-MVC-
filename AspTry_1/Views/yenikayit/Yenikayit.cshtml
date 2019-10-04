@@ -1,0 +1,122 @@
+﻿
+@model IEnumerable<AspTry_1.Models.kullanicilar>
+
+@{ Layout = null;}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Diniz Adient Yeni kayıt</title>
+
+    <!-- Custom fonts for this template-->
+
+    <link href="~/Content/vendor/fontawesome-free/css/all.css" rel="stylesheet" />
+    <!-- Page level plugin CSS-->
+
+    <link href="~/Content/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template-->
+
+    <link href="~/Content/css/sb-admin.css" rel="stylesheet" />
+
+</head>
+
+<main class="app-content">
+
+    <div class="row">
+        <div class="col-md-2">
+
+            <img src="~/yenikayit.jpg" alt="Alternate Text" style="background:red; width:250px; height:600px;" />
+
+        </div>
+
+        <div class="container" style="width:750px">
+            <div class="card">
+
+                <div class="card-body">
+
+
+                    <div class="col-md-10">
+
+                        @using (Html.BeginForm("Yenikayit", "yenikayit", FormMethod.Post))
+                        {
+
+                            <div class="container">
+
+                                <h3>Yeni Kullanıcı Kaydı</h3>
+                                <hr />
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Birim Seçin </label>
+
+
+                                    <select name="birim" id="input" class="form-control">
+                                        <option>Birim </option>
+                                        <option>Bilgi islem</option>
+                                        <option>Bakım</option>
+                                        <option>Elektrik</option>
+                                        <option>Makine</option>
+                                    </select>
+                                </div>
+
+                                <p style="color:red">
+                                    @ViewBag.name
+                                </p>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Ad - Soyad</label>
+                                    <input class="form-control" type="text" name="personelAdSoyad" value="" />
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Kullanıcı Adı</label>
+                                    <input class="form-control" type="text" name="kulAdi" value="" />
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Şifre </label>
+                                    <input class="form-control" type="text" name="sifre" value="" />
+                                </div>
+
+
+
+                                <div class="form-group">
+
+                                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Kaydı Oluştur</button>
+
+                                </div>
+
+                            </div>
+
+                        }
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+            @*</div>*@
+        </div>
+
+        <script src="~/js/jquery-3.2.1.min.js"></script>
+        <script src="~/js/popper.min.js"></script>
+        <script src="~/js/bootstrap.min.js"></script>
+        <script src="~/js/main.js"></script>
+        <!-- The javascript plugin to display page loading on top-->
+        <script src="~/js/plugins/pace.min.js"></script>
+        <script type="text/javascript">
+            // Login Page Flipbox control
+            $('.login-content [data-toggle="flip"]').click(function () {
+                $('.login-box').toggleClass('flipped');
+                return false;
+            });
+        </script>
+        </body>
+</html>

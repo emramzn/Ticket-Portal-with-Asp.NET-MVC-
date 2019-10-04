@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabaseDBModelStoreContainer" CdmEntityContainer="DatabaseDBEntities">
+    <EntitySetMapping Name="Gorevler">
+      <EntityTypeMapping TypeName="DatabaseDBModel.Gorevler">
+        <MappingFragment StoreEntitySet="Gorevler">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="İsbaslik" ColumnName="İsbaslik" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="Birim" ColumnName="Birim" />
+          <ScalarProperty Name="PersonelAdSoyad" ColumnName="PersonelAdSoyad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

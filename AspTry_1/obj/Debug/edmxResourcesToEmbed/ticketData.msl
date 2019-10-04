@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="denemeAdientModelStoreContainer" CdmEntityContainer="denemeAdientEntities">
+    <EntitySetMapping Name="tableOfUsers">
+      <EntityTypeMapping TypeName="denemeAdientModel.tableOfUsers">
+        <MappingFragment StoreEntitySet="tableOfUsers">
+          <ScalarProperty Name="identity" ColumnName="identity" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

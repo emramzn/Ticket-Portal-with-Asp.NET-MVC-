@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="birimler">
+    <Key>
+      <PropertyRef Name="birimID " />
+    </Key>
+    <Property Name="birimID " Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="birimAdi" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Gorevler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Durum" Type="varchar" MaxLength="15" />
+    <Property Name="isbaslik" Type="varchar" MaxLength="20" />
+    <Property Name="Aciklama" Type="varchar(max)" />
+    <Property Name="Tarih" Type="date" />
+    <Property Name="Birim" Type="varchar" MaxLength="50" />
+    <Property Name="PersonelAdSoyad" Type="varchar" MaxLength="50" />
+    <Property Name="gorevAalan" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="kullanicilar">
+    <Key>
+      <PropertyRef Name="kulAdi" />
+    </Key>
+    <Property Name="kulAdi" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="sifre" Type="varchar" MaxLength="20" />
+    <Property Name="AdSoyad" Type="varchar" MaxLength="35" />
+    <Property Name="birim" Type="varchar" MaxLength="20" />
+    <Property Name="yetki" Type="char" MaxLength="5" />
+    <Property Name="foto" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="perID" />
+    </Key>
+    <Property Name="perID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="AdSoyad" Type="varchar" MaxLength="35" />
+    <Property Name="birim" Type="varchar" MaxLength="20" />
+    <Property Name="yetki" Type="char" MaxLength="5" />
+  </EntityType>
+  <EntityContainer Name="DatabaseDBModelStoreContainer">
+    <EntitySet Name="birimler" EntityType="Self.birimler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gorevler" EntityType="Self.Gorevler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="kullanicilar" EntityType="Self.kullanicilar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

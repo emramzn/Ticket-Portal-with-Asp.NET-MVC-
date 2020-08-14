@@ -36,7 +36,7 @@ Söz konusu portalın sahip olduğu özelliklere genel olarak değinmek gerekirs
  <a><br> İşlem sürecindeki kayıtları gösteren ekran </a>
  <br>
 
-![](ForwardPage.JPG)
+![](forwardPage.JPG)
  <a><br> Görev yönlendirme ekranı </a>
  
  

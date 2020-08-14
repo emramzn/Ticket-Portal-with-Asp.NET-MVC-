@@ -16,17 +16,17 @@ Söz konusu portalın sahip olduğu özelliklere genel olarak değinmek gerekirs
 <li> Görev bitişi iki taraflı geri bildirim </li>
 
 
-<br>
+<br> <hr>
 
 ![](LoginPageWiew.JPG)
 <a  style="aligment: center;" > <br> Portal login ekranı</a>
 
-<br>
+<br> 
 
 ![](NewTaskPage.JPG)
  <a><br> Yeni görev oluşturma ekranı </a>
 
-<br>
+<br> 
 
 ![](HomaPage.JPG)
  <a><br> Portalın bölüm bazında kullanacağı anasayfa ekranı </a>
@@ -35,11 +35,17 @@ Söz konusu portalın sahip olduğu özelliklere genel olarak değinmek gerekirs
 
 ![](NowTaskPage.JPG)
  <a><br> İşlem sürecindeki kayıtları gösteren ekran </a>
+ 
  <br>
 
 ![](forwardPage.JPG)
  <a><br> Görev yönlendirme ekranı </a>
  
+ 
+ <br>
+
+![](ComplatedTask.JPG)
+ <a><br> Görev bitiş ve son açıklama ekranı </a>
  
  
  

@@ -22,4 +22,11 @@ Söz konusu portalın sahip olduğu özelliklere genel olarak değinmek gerekirs
 
 <br>
 
+![](NewTaskPage.JPG)
+ <a><br> Yeni görev oluşturma ekranı </a>
 
+<br>
+
+![](NewTaskPage.JPG)
+ <a><br> Yeni görev oluşturma ekranı </a>
+ 

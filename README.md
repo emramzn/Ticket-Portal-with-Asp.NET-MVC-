@@ -27,6 +27,24 @@ Söz konusu portalın sahip olduğu özelliklere genel olarak değinmek gerekirs
 
 <br>
 
-![](NewTaskPage.JPG)
- <a><br> Yeni görev oluşturma ekranı </a>
+![](HomaPage.JPG)
+ <a><br> Portalın bölüm bazında kullanacağı anasayfa ekranı </a>
+ 
+ <br>
+
+![](NowTaskPage.JPG)
+ <a><br> İşlem sürecindeki kayıtları gösteren ekran </a>
+ <br>
+
+![](ForwardPage.JPG)
+ <a><br> Görev yönlendirme ekranı </a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  

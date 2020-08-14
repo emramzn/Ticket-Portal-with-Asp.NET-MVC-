@@ -15,5 +15,11 @@ Söz konusu portalın sahip olduğu özelliklere genel olarak değinmek gerekirs
 <li> Görev süreci aşama takibi </li>
 <li> Görev bitişi iki taraflı geri bildirim </li>
 
+<br>
+
+![](LoginPageWiew.JPG)
+<a> <br> Portal login ekranı</a>
+
+<br>
 
 
